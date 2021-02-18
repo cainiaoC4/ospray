@@ -14,7 +14,7 @@ ExternalProject_Add(${COMPONENT_NAME}
   STAMP_DIR ${COMPONENT_NAME}/stamp
   SOURCE_DIR ${COMPONENT_NAME}/src
   BINARY_DIR ${COMPONENT_NAME}
-  URL "https://github.com/g-truc/glm/archive/master.zip"
+  URL "file://${CMAKE_INSTALL_PREREQUEST}/glm/master.zip"
   CONFIGURE_COMMAND ""
   BUILD_COMMAND ""
   INSTALL_COMMAND "${CMAKE_COMMAND}" -E copy_directory

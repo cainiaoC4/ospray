@@ -8,7 +8,7 @@ if (INSTALL_IN_SEPARATE_DIRECTORIES)
   set(COMPONENT_PATH ${INSTALL_DIR_ABSOLUTE}/${COMPONENT_NAME})
 endif()
 
-set(ISPC_BASE_URL "https://github.com/ispc/ispc/releases/download")
+set(ISPC_BASE_URL "file://${CMAKE_INSTALL_PREREQUEST}/ispc")
 if (APPLE)
   set(ISPC_URL ${ISPC_BASE_URL}/${ISPC_VERSION}/ispc-${ISPC_VERSION}-macOS.tar.gz)
 elseif(WIN32)

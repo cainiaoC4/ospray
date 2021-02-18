@@ -16,7 +16,7 @@ if (BUILD_EMBREE_FROM_SOURCE)
     SOURCE_DIR ${COMPONENT_NAME}/src
     BINARY_DIR ${COMPONENT_NAME}/build
     LIST_SEPARATOR | # Use the alternate list separator
-    URL "http://github.com/embree/embree/archive/${BUILD_EMBREE_VERSION}.zip"
+    URL "file://${CMAKE_INSTALL_PREREQUEST}/embree/${BUILD_EMBREE_VERSION}.zip"
     CMAKE_ARGS
       -DCMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}
       -DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}

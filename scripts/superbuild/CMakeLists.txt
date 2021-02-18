@@ -3,7 +3,7 @@
 
 ## Global settings ##
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.20)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/dependencies)
 
@@ -11,6 +11,16 @@ if(NOT CMAKE_INSTALL_PREFIX)
   set(CMAKE_INSTALL_PREFIX
       "${CMAKE_BINARY_DIR}/install"
       CACHE STRING "Final install location." FORCE)
+endif()
+
+set(cmakeBinPath ${CMAKE_CURRENT_BINARY_DIR})
+cmake_path(GET cmakeBinPath PARENT_PATH parentPath)
+
+if(NOT CMAKE_INSTALL_PREREQUEST)
+	set(CMAKE_INSTALL_PREREQUEST
+	"${parentPath}/preRequest"
+	CACHE STRING "离线前置库路径." FORCE
+	)
 endif()
 
 if (NOT CMAKE_BUILD_TYPE)

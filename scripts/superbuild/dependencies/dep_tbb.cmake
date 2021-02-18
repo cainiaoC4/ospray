@@ -22,7 +22,7 @@ else()
   set(TBB_OSSUFFIX "lin.tgz")
 endif()
 
-set(TBB_URL "https://github.com/oneapi-src/oneTBB/releases/download/v${TBB_VERSION}/${TBB_PREFIX}tbb-${TBB_VERSION}-${TBB_OSSUFFIX}")
+set(TBB_URL "file://${CMAKE_INSTALL_PREREQUEST}/tbb/v${TBB_VERSION}/${TBB_PREFIX}tbb-${TBB_VERSION}-${TBB_OSSUFFIX}")
 
 ExternalProject_Add(${COMPONENT_NAME}
   PREFIX ${COMPONENT_NAME}
