@@ -48,6 +48,22 @@ repository](https://github.com/ospray/OSPRay) on GitHub.
 [![Join the chat at
 https://gitter.im/ospray/ospray](https://ospray.github.io/images/gitter_badge.svg)](https://gitter.im/ospray/ospray?utm_source=badge&utm_medium=badge&utm_content=badge)
 
+Windows环境下配置OSPRay
+=======================
+
+1. cmake-gui 将目录`<OSPRAY_SOURCE_LOC>/build`作为target, 将目录`<OSPRAY_SOURCE_LOC>/scripts/superbuild`作为source
+2. 点击configure,点击ok，选择合适generator,选择合适platform,点击finish
+3. 勾选需要的部分,点击Generate.
+4. 检查`<OSPRAY_SOURCE_LOC>/scripts/superbuild/dependencies`下的各个文件，
+按需更改资源URL，例如提前在本地下载好对应版本的**Source.zip**:
+```URL "file://YourPath/embree/${BUILD_EMBREE_VERSION}.zip"```
+5. 在目录`<OSPRAY_SOURCE_LOC>/build`下，调用cmake命令```cmake --build . --config Release```等待下载以及编译完成，完成后前置库在目录`<OSPRAY_SOURCE_LOC>/build/install`
+6. 在任意位置创建目录，例如custombuild,将其作为cmake-gui的target,`<OSPRAY_SOURCE_LOC>`作为source.输入前置库
+路径，configure成功后Generate.
+7. 在当前目录,例如custombuild下,输入命令`cmake --build . --config Release`,完成后打开工程，将解决方案配置切换到Release(与 `--config` 一致),将ospExamples设置为启动项，开始调试.
+8. 调试时缺失dll,将`<OSPRAY_SOURCE_LOC>/build/install/ospray/bin`下的dll拷贝到Release，即可运行。
+9. 若需生成Debug工程,注意`--config`以及cmake-gui`MAKE_BUILD_TYPE`配置
+
 Building and Finding OSPRay
 ===========================
 
